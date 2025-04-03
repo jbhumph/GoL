@@ -7,7 +7,7 @@
         x:Class="GoL.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="GoL">
+        Title="GoL" Width="700" Height="800">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -15,6 +15,20 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <!-- Title Bar -->
+        <Border Grid.Row="0" Background="Bisque" Padding="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBlock Text="Conway's Game of Life" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" Foreground="Black" />
+                <Rectangle Width="200" />
+                <Button x:Name="StartButton" Content="Start / Stop" Foreground="Black" Background="Coral"/>
+            </StackPanel>
+        </Border>
+        
+    </Grid>
 </Window>
